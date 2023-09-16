@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  nami-web:
+    build: .
+    image: daedalus/project-nami-web
+    container_name: nami-web
+    ports:
+      - "8080:8080"
