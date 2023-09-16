@@ -1,0 +1,27 @@
+version: 2.1
+description: Project Nami
+
+orbs:
+  maven: circleci/maven@1.4.1
+
+executors:
+  openjdk17:
+    docker:
+      - image: cimg/openjdk:17
+    steps:
+      - checkout
+      - run: java --version
+
+workflows:
+  run_unit_tests:
+    jobs:
+      - maven/test:
+          executor: openjdk17
+
+# If we want to run other docker containers as part of this workflow
+#          pre-steps:
+#            - run:
+#                name: Install dockerize
+#                command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+#                environment:
+#                  DOCKERIZE_VERSION: v0.7.0
