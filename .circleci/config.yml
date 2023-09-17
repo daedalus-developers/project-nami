@@ -4,6 +4,7 @@ description: Project Nami
 orbs:
   # https://circleci.com/developer/orbs/orb/circleci/maven
   maven: circleci/maven@1.4.1
+  codecov: codecov/codecov@3.2.4
 
 executors:
   openjdk17:
@@ -11,7 +12,7 @@ executors:
       - image: cimg/openjdk:17.0
 
 workflows:
-  run_unit_tests:
+  build:
     jobs:
       - maven/test:
           executor: openjdk17
