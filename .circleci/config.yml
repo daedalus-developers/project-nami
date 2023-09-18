@@ -11,16 +11,9 @@ executors:
     docker:
       - image: cimg/openjdk:17.0
 
-jobs:
-  build:
-    executor: openjdk17
-    steps:
-      - checkout
-      - maven/test
-      - codecov/upload:
-          file: target/my-reports
-
 workflows:
   build_project:
     jobs:
-      - build
+      - maven/test
+      - codecov/upload:
+          file: target/my-reports
