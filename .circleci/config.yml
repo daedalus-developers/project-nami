@@ -4,7 +4,7 @@ description: Project Nami
 orbs:
   # https://circleci.com/developer/orbs/orb/circleci/maven
   maven: circleci/maven@1.4.1
-  codecov: codecov/codecov@3.2.5
+  # https://circleci.com/developer/orbs/orb/coveralls/coveralls
   coveralls: coveralls/coveralls@2.2.1
 
 executors:
