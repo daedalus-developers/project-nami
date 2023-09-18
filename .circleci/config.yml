@@ -15,5 +15,6 @@ workflows:
   build_project:
     jobs:
       - maven/test:
+          executor: openjdk17
           post-steps:
             - codecov/upload
